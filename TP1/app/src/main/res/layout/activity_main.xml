@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <com.clementserrano.tp1.HeaderView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:movieTitle="@string/star_wars">
+    </com.clementserrano.tp1.HeaderView>
+
     <ScrollView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="100">
-
-            <TextView
-                android:id="@+id/star_wars"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/star_wars"
-                android:textAllCaps="true"
-                tools:textSize="30sp" />
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -39,7 +36,6 @@
                 android:id="@+id/about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="100"
                 android:text="@string/about"
                 android:textAllCaps="true"
                 tools:textSize="18sp" />
@@ -52,17 +48,17 @@
 
                 <TextView
                     android:id="@+id/title"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="30"
                     android:text="@string/title"
                     tools:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/star_warsFR"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="30"
+                    android:layout_weight="70"
                     android:text="@string/star_warsFr"
                     tools:textSize="18sp" />
             </LinearLayout>
@@ -75,17 +71,17 @@
 
                 <TextView
                     android:id="@+id/titleO"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="30"
                     android:text="@string/titleO"
                     tools:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/star_warsEN"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="30"
+                    android:layout_weight="70"
                     android:text="@string/star_wars"
                     tools:textSize="18sp" />
             </LinearLayout>
@@ -98,17 +94,17 @@
 
                 <TextView
                     android:id="@+id/desc"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="30"
                     android:text="@string/desc"
                     tools:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/desc_star_wars"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="30"
+                    android:layout_weight="70"
                     android:text="@string/desc_star_wars"
                     tools:textSize="18sp" />
             </LinearLayout>
@@ -121,17 +117,17 @@
 
                 <TextView
                     android:id="@+id/keywords"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="30"
                     android:text="@string/keywords"
                     tools:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/keywords_star_wars"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="30"
+                    android:layout_weight="70"
                     android:text="@string/keywords_star_wars"
                     tools:textSize="18sp" />
             </LinearLayout>
@@ -140,36 +136,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="300">
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="80"
                     android:text="@string/share" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/comment" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="20"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/share" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="88"
+                    android:text="@string/comment" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="12"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/comment" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
                     android:text="@string/like" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="20"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/like" />
             </LinearLayout>
 
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="200dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/comment1"/>
-            </ListView>
+                android:minHeight="200dp"></ListView>
 
 
             <LinearLayout
@@ -182,13 +194,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="20"
                     android:hint="@string/hint"
-                    android:inputType="text"/>
+                    android:inputType="text" />
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="70"
-                    android:scaleType="centerCrop"
+                    android:layout_height="40dp"
+                    android:layout_weight="80"
+                    android:scaleType="centerInside"
                     android:src="@drawable/send" />
             </LinearLayout>
 
@@ -196,5 +208,4 @@
 
     </ScrollView>
 
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
