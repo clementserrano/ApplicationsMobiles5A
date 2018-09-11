@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/darkblue"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <com.clementserrano.tp1.HeaderView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:movieTitle="@string/star_wars">
-    </com.clementserrano.tp1.HeaderView>
+        app:movieTitle="@string/star_wars"></com.clementserrano.tp1.HeaderView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/about"
                 android:textAllCaps="true"
+                android:textColor="@color/yellow"
                 tools:textSize="18sp" />
 
             <LinearLayout
@@ -52,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
                     android:text="@string/title"
+                    android:textColor="@android:color/background_light"
                     tools:textSize="18sp" />
 
                 <TextView
@@ -60,6 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
                     android:text="@string/star_warsFr"
+                    android:textColor="@android:color/background_light"
                     tools:textSize="18sp" />
             </LinearLayout>
 
@@ -72,9 +75,10 @@
                 <TextView
                     android:id="@+id/titleO"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="30"
                     android:text="@string/titleO"
+                    android:textColor="@android:color/background_light"
                     tools:textSize="18sp" />
 
                 <TextView
@@ -83,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
                     android:text="@string/star_wars"
+                    android:textColor="@android:color/background_light"
                     tools:textSize="18sp" />
             </LinearLayout>
 
@@ -98,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
                     android:text="@string/desc"
+                    android:textColor="@android:color/background_light"
                     tools:textSize="18sp" />
 
                 <TextView
@@ -106,6 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
                     android:text="@string/desc_star_wars"
+                    android:textColor="@android:color/background_light"
                     tools:textSize="18sp" />
             </LinearLayout>
 
@@ -121,7 +128,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
                     android:text="@string/keywords"
-                    tools:textSize="18sp" />
+                    tools:textSize="18sp"
+                    android:textColor="@android:color/background_light"/>
 
                 <TextView
                     android:id="@+id/keywords_star_wars"
@@ -129,7 +137,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
                     android:text="@string/keywords_star_wars"
-                    tools:textSize="18sp" />
+                    tools:textSize="18sp"
+                    android:textColor="@android:color/background_light"/>
             </LinearLayout>
 
             <LinearLayout
@@ -142,7 +151,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="80"
-                    android:text="@string/share" />
+                    android:background="@color/yellow"
+                    android:text="@string/share"
+                    android:textColor="@android:color/background_light" />
 
                 <ImageView
                     android:layout_width="0dp"
@@ -155,7 +166,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="88"
-                    android:text="@string/comment" />
+                    android:background="@color/yellow"
+                    android:text="@string/comment"
+                    android:textColor="@android:color/background_light"/>
 
                 <ImageView
                     android:layout_width="0dp"
@@ -168,7 +181,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="80"
-                    android:text="@string/like" />
+                    android:background="@color/yellow"
+                    android:text="@string/like"
+                    android:textColor="@android:color/background_light"/>
 
                 <ImageView
                     android:layout_width="0dp"
@@ -194,7 +209,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="20"
                     android:hint="@string/hint"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textColor="@android:color/background_light"
+                    android:textColorHint="@android:color/darker_gray" />
 
                 <ImageView
                     android:layout_width="match_parent"

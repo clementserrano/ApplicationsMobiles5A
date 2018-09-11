@@ -11,18 +11,21 @@ import android.widget.TextView;
 
 public class HeaderView extends LinearLayout {
 
-    //private TextView movieTitle;
+    private TextView movieTitle;
 
     public HeaderView(Context context) {
         super(context);
+        this.initialize(context, null);
     }
 
     public HeaderView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        this.initialize(context, attrs);
     }
 
     public HeaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.initialize(context, attrs);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -33,17 +36,17 @@ public class HeaderView extends LinearLayout {
 
     private void initialize(Context context, AttributeSet attrs) {
         inflate(context, R.layout.header, this);
-        /*this.movieTitle = findViewById(R.id.movieTitle);
+        this.movieTitle = findViewById(R.id.movieTitle);
 
         if (attrs != null) {
             TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.HeaderView, 0, 0);
 
             String movieTitle = array.getString(R.styleable.HeaderView_movieTitle);
-            if (this.movieTitle == null) {
+            if (this.movieTitle != null) {
                 this.movieTitle.setText(movieTitle);
             }
 
             array.recycle();
-        }*/
+        }
     }
 }
