@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     class="com.clementserrano.tp1.HeaderView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/darkblue"
-    android:orientation="horizontal"
-    android:weightSum="10">
+    android:orientation="vertical"
+    android:weightSum="2">
+
+    <Button
+        android:id="@+id/backTitle"
+        android:layout_width="match_parent"
+        android:layout_height="19dp"
+        android:layout_weight="2"
+        android:background="@color/darkblue"
+        android:gravity="top|left"
+        android:text="@string/backToTitle"
+        android:textColor="@color/yellow"
+        android:textSize="11dp" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="2">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:background="@color/darkblue"
-            android:gravity="top|left"
-            android:text="@string/backToTitle"
-            android:textColor="@color/yellow" />
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="10">
 
         <TextView
             android:id="@+id/movieTitle"
@@ -33,9 +35,10 @@
             android:text="@string/movieTitle"
             android:textAllCaps="true"
             android:textColor="@color/yellow"
-            tools:textSize="30sp" />
+            android:textSize="20dp" />
 
         <ImageButton
+            android:id="@+id/cross"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
