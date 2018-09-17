@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    class="com.clementserrano.tp1.HeaderView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkblue"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+    <Button
+        android:id="@+id/backTitle"
+        android:layout_width="match_parent"
+        android:layout_height="19dp"
+        android:layout_weight="2"
+        android:background="@color/darkblue"
+        android:gravity="top|left"
+        android:text="@string/backToTitle"
+        android:textColor="@color/yellow"
+        android:textSize="11dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:gravity="center_horizontal"
+            android:text="@string/movieTitle"
+            android:textAllCaps="true"
+            android:textColor="@color/yellow"
+            android:textSize="20dp" />
+
+        <ImageButton
+            android:id="@+id/cross"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/darkblue"
+            android:scaleType="centerInside"
+            android:src="@drawable/cross"
+            android:tint="@color/yellow" />
+    </LinearLayout>
+</LinearLayout>
