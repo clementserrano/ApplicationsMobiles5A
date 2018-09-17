@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     TextView commentList;
     boolean toggleLike;
     boolean toggleComment;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +51,19 @@ public class MainActivity extends AppCompatActivity {
         this.likeButton.setOnClickListener(clickLike);
         this.commentButton.setOnClickListener(clickComment);
         this.sendButton.setOnClickListener(clickSend);
+
+        this.mRecyclerView = findViewById(R.id.commentSection);
+
+        CommentAdapter commentAdapter = new CommentAdapter();
+
+        this.mRecyclerView.setAdapter(commentAdapter);
+        this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        this.mRecyclerView.getAdapter().notifyDataSetChanged();
     }
 
     private View.OnClickListener clickExit = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            /*finish();
-            System.exit(0);*/
             Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
             startActivity(intent);
         }
@@ -96,16 +104,12 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
 
-            if (toggleComment) {
-                commentList.setText(commentList.getText() + "\n" + commentEdit.getText());
-                commentEdit.setText("");
-            } else {
-                commentList.setText(commentEdit.getText());
-                commentEdit.setText("");
-                commentList.setGravity(Gravity.NO_GRAVITY);
-                commentList.setBackgroundResource(R.color.darkblue);
-                toggleComment = true;
-            }
+            Comment comment = new Comment("Jean-Michel", commentEdit.getText().toString(), "jean-michel.png");
+            ((CommentAdapter) mRecyclerView.getAdapter()).addComment(comment);
+
+            mRecyclerView.getAdapter().notifyDataSetChanged();
+
+            commentEdit.setText("");
         }
     };
 }
