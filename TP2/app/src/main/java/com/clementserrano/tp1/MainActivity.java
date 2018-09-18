@@ -50,13 +50,20 @@ public class MainActivity extends AppCompatActivity {
         this.sendButton.setOnClickListener(clickSend);
 
         this.mRecyclerView = findViewById(R.id.commentSection);
-        this.mRecyclerView.setNestedScrollingEnabled(false);
 
         CommentAdapter commentAdapter = new CommentAdapter();
 
         this.mRecyclerView.setAdapter(commentAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        this.mRecyclerView.setNestedScrollingEnabled(false);
         this.mRecyclerView.getAdapter().notifyDataSetChanged();
+
+        Comment comment = new Comment("Jean-Michel", "lalala", "pig");
+        Comment comment2 = new Comment("Jean-Michel", "lololo", "pig");
+
+        commentAdapter.addComment(comment);
+        commentAdapter.addComment(comment2);
+        commentAdapter.notifyDataSetChanged();
     }
 
     private View.OnClickListener clickExit = new View.OnClickListener() {
