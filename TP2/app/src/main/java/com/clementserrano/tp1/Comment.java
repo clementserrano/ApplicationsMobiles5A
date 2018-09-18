@@ -35,4 +35,13 @@ public class Comment {
     public void setImageName(String imageName) {
         this.imageName = imageName;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "user='" + user + '\'' +
+                ", content='" + content + '\'' +
+                ", imageName='" + imageName + '\'' +
+                '}';
+    }
 }

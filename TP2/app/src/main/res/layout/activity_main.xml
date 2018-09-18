@@ -205,17 +205,17 @@
                         android:textColor="@android:color/background_light"
                         android:textSize="11dp" />
                 </LinearLayout>
-
-                <ScrollView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="blocksDescendants">
 
                     <android.support.v7.widget.RecyclerView
+                        android:id="@+id/commentSection"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/commentSection"></android.support.v7.widget.RecyclerView>
-                </ScrollView>
+                        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
+                </RelativeLayout>
             </LinearLayout>
 
         </ScrollView>

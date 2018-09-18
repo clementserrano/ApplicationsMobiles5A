@@ -16,7 +16,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     Button commentButton;
     EditText commentEdit;
     ImageButton sendButton;
-    TextView commentList;
     boolean toggleLike;
     boolean toggleComment;
     private RecyclerView mRecyclerView;
@@ -42,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         this.commentButton = findViewById(R.id.comment);
         this.commentEdit = findViewById(R.id.commentEdit);
         this.sendButton = findViewById(R.id.send);
-        this.commentList = findViewById(R.id.commentList);
         this.toggleLike = false;
         this.toggleComment = false;
 
@@ -53,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         this.sendButton.setOnClickListener(clickSend);
 
         this.mRecyclerView = findViewById(R.id.commentSection);
+        this.mRecyclerView.setNestedScrollingEnabled(false);
 
         CommentAdapter commentAdapter = new CommentAdapter();
 
@@ -97,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private View.OnClickListener clickSend = new View.OnClickListener() {
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         public void onClick(View v) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -104,10 +103,12 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
 
-            Comment comment = new Comment("Jean-Michel", commentEdit.getText().toString(), "jean-michel.png");
-            ((CommentAdapter) mRecyclerView.getAdapter()).addComment(comment);
+            Comment comment = new Comment("Jean-Michel", commentEdit.getText().toString(), "pig");
 
-            mRecyclerView.getAdapter().notifyDataSetChanged();
+            CommentAdapter commentAdapter = ((CommentAdapter) mRecyclerView.getAdapter());
+
+            commentAdapter.addComment(comment);
+            commentAdapter.notifyDataSetChanged();
 
             commentEdit.setText("");
         }

@@ -29,6 +29,7 @@ public class CommentViewHolder extends RecyclerView.ViewHolder {
             }
             if (mCommentImg != null) {
                 // Set mCommentImg image
+                mCommentImg.setImageResource(R.drawable.pig);
             }
         }
     }
