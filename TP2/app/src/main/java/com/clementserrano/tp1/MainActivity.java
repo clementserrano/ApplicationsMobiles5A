@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         this.mRecyclerView.setNestedScrollingEnabled(false);
         this.mRecyclerView.getAdapter().notifyDataSetChanged();
 
-        Comment comment = new Comment("Jean-Michel", "lalala", "pig");
-        Comment comment2 = new Comment("Jean-Michel", "lololo", "pig");
+        Comment comment = new Comment("Jean-Michel", "Film interstellaire !", "pig");
+        Comment comment2 = new Comment("Jean-Michel", "Solo meurt dans le 7.", "pig");
 
         commentAdapter.addComment(comment);
         commentAdapter.addComment(comment2);

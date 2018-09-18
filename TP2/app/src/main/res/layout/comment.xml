@@ -8,12 +8,11 @@
     android:paddingRight="20dp"
     android:paddingTop="5dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/commentImg"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:scaleType="centerInside" />
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:id="@+id/commentUser"
