@@ -1,10 +1,12 @@
-package com.clementserrano.tp1;
+package com.clementserrano.tp1.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.clementserrano.tp1.R;
+import com.clementserrano.tp1.model.Comment;
 
 public class CommentViewHolder extends RecyclerView.ViewHolder {
 

@@ -6,6 +6,18 @@ buildscript {
         google()
         jcenter()
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == "com.android.support") {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "26.+"
+                }
+            }
+        }
+    }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
         

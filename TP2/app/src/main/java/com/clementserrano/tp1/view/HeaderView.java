@@ -1,4 +1,4 @@
-package com.clementserrano.tp1;
+package com.clementserrano.tp1.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.clementserrano.tp1.R;
 
 public class HeaderView extends LinearLayout {
 

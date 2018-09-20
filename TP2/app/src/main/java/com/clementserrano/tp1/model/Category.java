@@ -1,4 +1,4 @@
-package com.clementserrano.tp1;
+package com.clementserrano.tp1.model;
 
 public class Category {
     String name;

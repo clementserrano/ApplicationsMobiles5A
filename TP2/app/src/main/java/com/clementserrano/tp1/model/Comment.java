@@ -1,11 +1,11 @@
-package com.clementserrano.tp1;
+package com.clementserrano.tp1.model;
 
 public class Comment {
     String user;
     String content;
-    String imageName;
+    int imageName;
 
-    public Comment(String user, String content, String imageName) {
+    public Comment(String user, String content, int imageName) {
         this.user = user;
         this.content = content;
         this.imageName = imageName;
@@ -28,11 +28,11 @@ public class Comment {
         this.content = content;
     }
 
-    public String getImageName() {
+    public int getImageName() {
         return imageName;
     }
 
-    public void setImageName(String imageName) {
+    public void setImageName(int imageName) {
         this.imageName = imageName;
     }
 

@@ -1,9 +1,13 @@
-package com.clementserrano.tp1;
+package com.clementserrano.tp1.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.clementserrano.tp1.adapter.CategoryAdapter;
+import com.clementserrano.tp1.R;
+import com.clementserrano.tp1.model.Category;
 
 import java.util.ArrayList;
 import java.util.Arrays;

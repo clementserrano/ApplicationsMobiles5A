@@ -14,11 +14,11 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-        <com.clementserrano.tp1.HeaderView
+        <com.clementserrano.tp1.view.HeaderView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:backTitle="@string/back"
-            app:movieTitle="@string/star_wars"></com.clementserrano.tp1.HeaderView>
+            app:movieTitle="@string/star_wars"></com.clementserrano.tp1.view.HeaderView>
 
         <ScrollView
             android:layout_width="match_parent"

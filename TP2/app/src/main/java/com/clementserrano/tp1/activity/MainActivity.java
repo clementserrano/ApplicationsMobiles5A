@@ -1,4 +1,4 @@
-package com.clementserrano.tp1;
+package com.clementserrano.tp1.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import com.clementserrano.tp1.R;
+import com.clementserrano.tp1.adapter.CommentAdapter;
+import com.clementserrano.tp1.model.Comment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,20 +62,17 @@ public class MainActivity extends AppCompatActivity {
         this.mRecyclerView.setNestedScrollingEnabled(false);
         this.mRecyclerView.getAdapter().notifyDataSetChanged();
 
-        Comment comment = new Comment("Jean-Michel", "Film interstellaire !", "pig");
-        Comment comment2 = new Comment("Jean-Michel", "Solo meurt dans le 7.", "pig");
+        Comment comment = new Comment("Jean-Michel", "Film interstellaire !", R.drawable.pig);
+        Comment comment2 = new Comment("Jean-Michel", "Solo meurt dans le 7.", R.drawable.pig);
 
         commentAdapter.addComment(comment);
         commentAdapter.addComment(comment2);
         commentAdapter.notifyDataSetChanged();
     }
 
-    private View.OnClickListener clickExit = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-            startActivity(intent);
-        }
+    private View.OnClickListener clickExit = v -> {
+        Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+        startActivity(intent);
     };
 
     private View.OnClickListener clickLike = new View.OnClickListener() {
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
 
-            Comment comment = new Comment("Jean-Michel", commentEdit.getText().toString(), "pig");
+            Comment comment = new Comment("Jean-Michel", commentEdit.getText().toString(), R.drawable.pig);
 
             CommentAdapter commentAdapter = ((CommentAdapter) mRecyclerView.getAdapter());
 
