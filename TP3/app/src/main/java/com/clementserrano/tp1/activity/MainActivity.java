@@ -30,15 +30,16 @@ public class MainActivity extends AppCompatActivity {
     private TextView movieDesc;
     private TextView movieKeywords;
     private ImageView movieImage;
-    private Button backButton;
     private Button likeButton;
     private Button commentButton;
-    private ImageButton crossButton;
     private ImageButton sendButton;
     private EditText commentEdit;
     private boolean toggleLike;
     private boolean toggleComment;
     private RecyclerView mRecyclerView;
+
+    private Button backButton;
+    private ImageButton crossButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         this.toggleLike = false;
         this.toggleComment = false;
 
-        this.backButton.setOnClickListener(clickExit);
+        this.backButton.setOnClickListener(clickBack);
         this.crossButton.setOnClickListener(clickExit);
         this.likeButton.setOnClickListener(clickLike);
         this.commentButton.setOnClickListener(clickComment);
@@ -86,9 +87,19 @@ public class MainActivity extends AppCompatActivity {
         commentAdapter.notifyDataSetChanged();
     }
 
-    private View.OnClickListener clickExit = v -> {
-        Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    private View.OnClickListener clickBack = v -> {
+        Intent intent = new Intent(MainActivity.this, MovieListActivity.class);
         startActivity(intent);
+    };
+
+    private View.OnClickListener clickExit = v -> {
+        finish();
+        System.exit(0);
     };
 
     private View.OnClickListener clickLike = new View.OnClickListener() {

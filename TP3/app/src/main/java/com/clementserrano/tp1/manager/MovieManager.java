@@ -17,13 +17,13 @@ public class MovieManager {
 
     private MovieManager() {
         movies = new ArrayList<>();
-        movies.add(new Movie("Star Wars IV", R.drawable.star_wars, "Il y a bien longtemps, dans une galaxie très lointaine...", MovieListEnum.MOVIE));
-        movies.add(new Movie("Le Seigneur des anneaux", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        movies.add(new Movie("Star Wars V", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        movies.add(new Movie("Star Wars VI", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        movies.add(new Movie("Fast & Furious", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        movies.add(new Movie("Deadpool", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        movies.add(new Movie("Avenger", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
+        movies.add(new Movie("La Guerre des étoiles IV", "Star Wars IV", R.drawable.star_wars, "Il y a bien longtemps, dans une galaxie très lointaine...", "Lightsaber, Jedi, Force, Father", "", MovieListEnum.MOVIE));
+        movies.add(new Movie("Le Seigneur des anneaux", "Lord Of The Rings", R.drawable.star_wars, "...", "...", "", MovieListEnum.MOVIE));
+        movies.add(new Movie("La Guerre des étoiles V", "Star Wars V", R.drawable.star_wars, "...", "...", "", MovieListEnum.MOVIE));
+        movies.add(new Movie("La Guerre des étoiles VI", "Star Wars VI", R.drawable.star_wars, "...", "...", "", MovieListEnum.MOVIE));
+        movies.add(new Movie("Rapide & Furieux", "Fast & Furious", R.drawable.star_wars, "...", "...", "", MovieListEnum.MOVIE));
+        movies.add(new Movie("Piscine morte", "Deadpool", R.drawable.star_wars, "...", "...", "", MovieListEnum.MOVIE));
+        movies.add(new Movie("Les Vengeurs", "Avenger", R.drawable.star_wars, "...", "...", "", MovieListEnum.MOVIE));
 
         categories = new ArrayList<>();
         categories.add(new Category("Comédie"));

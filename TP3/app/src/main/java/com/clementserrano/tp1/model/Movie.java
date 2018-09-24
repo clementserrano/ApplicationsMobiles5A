@@ -8,21 +8,22 @@ public class Movie {
     private int image;
     private String desc;
     private String keywords;
+    private String category;
     private MovieListEnum type;
 
-    public Movie(String name, int image, String desc, MovieListEnum type) {
-        this.title = name;
-        this.image = image;
-        this.desc = desc;
+    public Movie(String title, MovieListEnum type) {
+        this.title = title;
         this.type = type;
     }
 
-    public Movie(String title, String originalTitle, int image, String desc, String keywords) {
+    public Movie(String title, String originalTitle, int image, String desc, String keywords, String category, MovieListEnum type) {
         this.title = title;
         this.originalTitle = originalTitle;
         this.image = image;
         this.desc = desc;
         this.keywords = keywords;
+        this.category = category;
+        this.type = type;
     }
 
     public String getName() {
@@ -53,13 +54,14 @@ public class Movie {
         return keywords;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
                 "name='" + title + '\'' +
-                ", image=" + image +
-                ", desc='" + desc + '\'' +
-                ", type=" + type +
                 '}';
     }
 }
