@@ -19,7 +19,7 @@
     <string name="commentList">Liste de commentaires</string>
     <string name="back"><![CDATA[< Retour]]></string>
     <string name="categoryTitle">Catégories</string>
-    <string name="close">Fermer</string>
+    <string name="close"><![CDATA[< Fermer]]></string>
     <string name="backToMoviesList"><![CDATA[< Retour à la liste des films]]></string>
     <string name="displayCategories"><![CDATA[< Catégories]]></string>
     <string name="movieList">Liste des films</string>

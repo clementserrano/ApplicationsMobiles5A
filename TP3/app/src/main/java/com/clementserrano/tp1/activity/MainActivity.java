@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView movieImage;
     private Button likeButton;
     private Button commentButton;
+    private Button shareButton;
     private ImageButton sendButton;
     private EditText commentEdit;
     private boolean toggleLike;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         this.backButton = findViewById(R.id.backTitle);
         this.crossButton = findViewById(R.id.cross);
         this.likeButton = findViewById(R.id.like);
+        this.shareButton = findViewById(R.id.share);
         this.commentButton = findViewById(R.id.comment);
         this.commentEdit = findViewById(R.id.commentEdit);
         this.sendButton = findViewById(R.id.send);
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         this.likeButton.setOnClickListener(clickLike);
         this.commentButton.setOnClickListener(clickComment);
         this.sendButton.setOnClickListener(clickSend);
+        this.shareButton.setOnClickListener(clickShare);
 
         // Commentaires
 
@@ -154,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         public void onClick(View v) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            /*AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setMessage(commentEdit.getText());
             AlertDialog dialog = builder.create();
-            dialog.show();
+            dialog.show();*/
 
             Comment comment = new Comment("Jean-Michel", commentEdit.getText().toString(), R.drawable.pig);
 
@@ -169,5 +172,16 @@ public class MainActivity extends AppCompatActivity {
 
             commentEdit.setText("");
         }
+    };
+
+    private View.OnClickListener clickShare = v -> {
+        Uri fileUri = Uri.parse("android.resource://" + getPackageName() + "/drawable/" + "star_wars");
+        Intent sharingIntent = new Intent();
+        sharingIntent.setAction(Intent.ACTION_SEND);
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, movie.getTitle());
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
+        sharingIntent.setType("image/jpeg");
+        sharingIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(sharingIntent, "Share Movie With"));
     };
 }
