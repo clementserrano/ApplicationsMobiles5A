@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.clementserrano.tp1.R;
-import com.clementserrano.tp1.model.MovieList;
+import com.clementserrano.tp1.model.Movie;
 
 public class LetterViewHolder extends MovieListViewHolder {
     private TextView mMovieLetter;
@@ -15,10 +15,10 @@ public class LetterViewHolder extends MovieListViewHolder {
     }
 
     @Override
-    public void layoutForMovieList(MovieList movieList) {
-        if (movieList != null) {
+    public void layoutForMovieList(Movie movie) {
+        if (movie != null) {
             if (this.mMovieLetter != null) {
-                mMovieLetter.setText(movieList.getName());
+                mMovieLetter.setText(movie.getName());
             }
         }
     }

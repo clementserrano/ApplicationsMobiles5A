@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.clementserrano.tp1.R;
-import com.clementserrano.tp1.model.MovieList;
+import com.clementserrano.tp1.model.Movie;
 
 public class MovieViewHolder extends MovieListViewHolder {
 
@@ -21,16 +21,16 @@ public class MovieViewHolder extends MovieListViewHolder {
     }
 
     @Override
-    public void layoutForMovieList(MovieList movieList) {
-        if (movieList != null) {
+    public void layoutForMovieList(Movie movie) {
+        if (movie != null) {
             if (this.mMovieImage != null) {
-                mMovieImage.setImageResource(movieList.getImage());
+                mMovieImage.setImageResource(movie.getImage());
             }
             if (this.mMovieListTitle != null) {
-                mMovieListTitle.setText(movieList.getName());
+                mMovieListTitle.setText(movie.getName());
             }
             if (this.mMovieListDesc != null) {
-                mMovieListDesc.setText(movieList.getDesc());
+                mMovieListDesc.setText(movie.getDesc());
             }
         }
     }

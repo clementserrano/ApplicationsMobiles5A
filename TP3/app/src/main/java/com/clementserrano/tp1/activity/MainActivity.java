@@ -16,6 +16,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.clementserrano.tp1.R;
 import com.clementserrano.tp1.adapter.CommentAdapter;
@@ -23,20 +25,35 @@ import com.clementserrano.tp1.model.Comment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button backButton;
-    ImageButton crossButton;
-    Button likeButton;
-    Button commentButton;
-    EditText commentEdit;
-    ImageButton sendButton;
-    boolean toggleLike;
-    boolean toggleComment;
+    private TextView movieTitle;
+    private TextView movieOriginalTitle;
+    private TextView movieDesc;
+    private TextView movieKeywords;
+    private ImageView movieImage;
+    private Button backButton;
+    private Button likeButton;
+    private Button commentButton;
+    private ImageButton crossButton;
+    private ImageButton sendButton;
+    private EditText commentEdit;
+    private boolean toggleLike;
+    private boolean toggleComment;
     private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // TextView & Image
+        this.movieTitle = findViewById(R.id.movieTitle);
+        this.movieOriginalTitle = findViewById(R.id.movieOriginalTitle);
+        this.movieDesc = findViewById(R.id.movieDesc);
+        this.movieKeywords = findViewById(R.id.movieKeywords);
+        this.movieImage = findViewById(R.id.movieImage);
+
+
+        // Boutons
 
         this.backButton = findViewById(R.id.backTitle);
         this.crossButton = findViewById(R.id.cross);
@@ -53,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         this.commentButton.setOnClickListener(clickComment);
         this.sendButton.setOnClickListener(clickSend);
 
+        // Commentaires
+
         this.mRecyclerView = findViewById(R.id.commentSection);
 
         CommentAdapter commentAdapter = new CommentAdapter();
@@ -62,11 +81,8 @@ public class MainActivity extends AppCompatActivity {
         this.mRecyclerView.setNestedScrollingEnabled(false);
         this.mRecyclerView.getAdapter().notifyDataSetChanged();
 
-        Comment comment = new Comment("Jean-Michel", "Film interstellaire !", R.drawable.pig);
-        Comment comment2 = new Comment("Jean-Michel", "Solo meurt dans le 7.", R.drawable.pig);
-
-        commentAdapter.addComment(comment);
-        commentAdapter.addComment(comment2);
+        commentAdapter.addComment(new Comment("Jean-Michel", "Film interstellaire !", R.drawable.pig));
+        commentAdapter.addComment(new Comment("Jean-Michel", "Solo meurt dans le 7.", R.drawable.pig));
         commentAdapter.notifyDataSetChanged();
     }
 

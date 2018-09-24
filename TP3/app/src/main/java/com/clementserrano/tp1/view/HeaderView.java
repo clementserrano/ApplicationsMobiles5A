@@ -14,7 +14,7 @@ import com.clementserrano.tp1.R;
 
 public class HeaderView extends LinearLayout {
 
-    private TextView movieTitle;
+    private TextView pageTitle;
     private Button backTitle;
 
     public HeaderView(Context context) {
@@ -40,15 +40,15 @@ public class HeaderView extends LinearLayout {
 
     private void initialize(Context context, AttributeSet attrs) {
         inflate(context, R.layout.header, this);
-        this.movieTitle = findViewById(R.id.movieTitle);
+        this.pageTitle = findViewById(R.id.pageTitle);
         this.backTitle = findViewById(R.id.backTitle);
 
         if (attrs != null) {
             TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.HeaderView, 0, 0);
 
-            String movieTitle = array.getString(R.styleable.HeaderView_movieTitle);
-            if (this.movieTitle != null) {
-                this.movieTitle.setText(movieTitle);
+            String pageTitle = array.getString(R.styleable.HeaderView_pageTitle);
+            if (this.pageTitle != null) {
+                this.pageTitle.setText(pageTitle);
             }
 
             String backTitle = array.getString(R.styleable.HeaderView_backTitle);

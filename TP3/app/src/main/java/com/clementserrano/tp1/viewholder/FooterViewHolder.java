@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.clementserrano.tp1.R;
-import com.clementserrano.tp1.model.MovieList;
+import com.clementserrano.tp1.model.Movie;
 
 public class FooterViewHolder extends MovieListViewHolder {
     private TextView mMovieFooter;
@@ -15,10 +15,10 @@ public class FooterViewHolder extends MovieListViewHolder {
     }
 
     @Override
-    public void layoutForMovieList(MovieList movieList) {
-        if (movieList != null) {
+    public void layoutForMovieList(Movie movie) {
+        if (movie != null) {
             if (this.mMovieFooter != null) {
-                mMovieFooter.setText(movieList.getName());
+                mMovieFooter.setText(movie.getName());
             }
         }
     }

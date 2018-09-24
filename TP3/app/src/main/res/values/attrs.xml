@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="HeaderView">
-        <attr name="movieTitle" format="string"></attr>
+        <attr name="pageTitle" format="string"></attr>
         <attr name="backTitle" format="string"></attr>
     </declare-styleable>
 </resources>

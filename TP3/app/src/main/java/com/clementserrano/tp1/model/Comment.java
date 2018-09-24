@@ -1,9 +1,9 @@
 package com.clementserrano.tp1.model;
 
 public class Comment {
-    String user;
-    String content;
-    int imageName;
+    private String user;
+    private String content;
+    private int imageName;
 
     public Comment(String user, String content, int imageName) {
         this.user = user;

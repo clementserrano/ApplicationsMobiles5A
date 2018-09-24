@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.clementserrano.tp1.R;
-import com.clementserrano.tp1.model.MovieList;
+import com.clementserrano.tp1.model.Movie;
 import com.clementserrano.tp1.viewholder.FooterViewHolder;
 import com.clementserrano.tp1.viewholder.LetterViewHolder;
 import com.clementserrano.tp1.viewholder.MovieListViewHolder;
@@ -21,7 +21,7 @@ public class MovieListAdapter extends RecyclerView.Adapter {
     final int LETTER_CELL = 1;
     final int FOOTER_CELL = 2;
 
-    private List<MovieList> mMovieLists;
+    private List<Movie> mMovies;
 
     @NonNull
     @Override
@@ -44,26 +44,26 @@ public class MovieListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MovieList currentMovieList = mMovieLists.get(position);
-        if (holder instanceof MovieListViewHolder && currentMovieList != null) {
+        Movie currentMovie = mMovies.get(position);
+        if (holder instanceof MovieListViewHolder && currentMovie != null) {
             MovieListViewHolder viewHolder = (MovieListViewHolder) holder;
-            viewHolder.layoutForMovieList(currentMovieList);
+            viewHolder.layoutForMovieList(currentMovie);
         }
     }
 
     @Override
     public int getItemCount() {
-        if (mMovieLists != null) {
-            return mMovieLists.size();
+        if (mMovies != null) {
+            return mMovies.size();
         }
         return 0;
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (mMovieLists != null) {
-            MovieList movieList = mMovieLists.get(position);
-            switch (movieList.getType()) {
+        if (mMovies != null) {
+            Movie movie = mMovies.get(position);
+            switch (movie.getType()) {
                 case MOVIE:
                     return MOVIE_CELL;
                 case LETTER:
@@ -75,7 +75,7 @@ public class MovieListAdapter extends RecyclerView.Adapter {
         return 0;
     }
 
-    public void setmMovieLists(List<MovieList> mMovieLists) {
-        this.mMovieLists = mMovieLists;
+    public void setmMovies(List<Movie> mMovies) {
+        this.mMovies = mMovies;
     }
 }

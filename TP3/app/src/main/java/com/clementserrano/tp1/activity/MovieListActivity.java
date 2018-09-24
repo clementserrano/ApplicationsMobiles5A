@@ -9,7 +9,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.clementserrano.tp1.R;
 import com.clementserrano.tp1.adapter.MovieListAdapter;
-import com.clementserrano.tp1.model.MovieList;
+import com.clementserrano.tp1.manager.MovieManager;
+import com.clementserrano.tp1.model.Movie;
 import com.clementserrano.tp1.util.MovieListEnum;
 
 import java.util.ArrayList;
@@ -17,8 +18,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MovieListActivity extends AppCompatActivity {
+
     private RecyclerView mRecyclerView;
-    private List<MovieList> mMovieLists;
+    private List<Movie> mMovies;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -28,18 +30,11 @@ public class MovieListActivity extends AppCompatActivity {
 
         this.mRecyclerView = findViewById(R.id.movieList);
 
-        mMovieLists = new ArrayList<>();
-        mMovieLists.add(new MovieList("Star Wars IV", R.drawable.star_wars, "Il y a bien longtemps, dans une galaxie très lointaine...", MovieListEnum.MOVIE));
-        mMovieLists.add(new MovieList("Le Seigneur des anneaux", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        mMovieLists.add(new MovieList("Star Wars V", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        mMovieLists.add(new MovieList("Star Wars VI", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        mMovieLists.add(new MovieList("Fast & Furious", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        mMovieLists.add(new MovieList("Deadpool", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
-        mMovieLists.add(new MovieList("Avenger", R.drawable.star_wars, "...", MovieListEnum.MOVIE));
+        mMovies = MovieManager.getInstance().getMovies();
         this.sortMovieList();
 
         MovieListAdapter movieListAdapter = new MovieListAdapter();
-        movieListAdapter.setmMovieLists(mMovieLists);
+        movieListAdapter.setmMovies(mMovies);
         this.mRecyclerView.setAdapter(movieListAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.mRecyclerView.getAdapter().notifyDataSetChanged();
@@ -47,22 +42,22 @@ public class MovieListActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void sortMovieList() {
-        mMovieLists = mMovieLists.stream().sorted((movie1, movie2) -> movie1.getName()
+        mMovies = mMovies.stream().sorted((movie1, movie2) -> movie1.getName()
                 .toLowerCase().compareTo(movie2.getName().toLowerCase())).collect(Collectors.toList());
 
         String letter = "";
         int nbMovies = 0;
-        for (int i = 0; i < mMovieLists.size(); i++) {
-            if (mMovieLists.get(i).getType() == MovieListEnum.MOVIE) {
-                String currentLetter = mMovieLists.get(i).getName().substring(0, 1);
+        for (int i = 0; i < mMovies.size(); i++) {
+            if (mMovies.get(i).getType() == MovieListEnum.MOVIE) {
+                String currentLetter = mMovies.get(i).getName().substring(0, 1);
 
                 if (letter.equals("")) {
-                    mMovieLists.add(i, new MovieList(currentLetter, 0, "", MovieListEnum.LETTER));
+                    mMovies.add(i, new Movie(currentLetter, 0, "", MovieListEnum.LETTER));
                     letter = currentLetter;
                 } else if (!letter.equals(currentLetter)) {
                     String footer = nbMovies + (nbMovies == 1 ? " film" : " films");
-                    mMovieLists.add(i, new MovieList(footer, 0, "", MovieListEnum.FOOTER));
-                    mMovieLists.add(i + 1, new MovieList(currentLetter, 0, "", MovieListEnum.LETTER));
+                    mMovies.add(i, new Movie(footer, 0, "", MovieListEnum.FOOTER));
+                    mMovies.add(i + 1, new Movie(currentLetter, 0, "", MovieListEnum.LETTER));
                     letter = currentLetter;
                     nbMovies = 0;
                 } else {
@@ -70,9 +65,9 @@ public class MovieListActivity extends AppCompatActivity {
                 }
             }
         }
-        if (mMovieLists.size() != 0) {
+        if (mMovies.size() != 0) {
             String footer = nbMovies + (nbMovies == 1 ? " film" : " films");
-            mMovieLists.add(new MovieList(footer, 0, "", MovieListEnum.FOOTER));
+            mMovies.add(new Movie(footer, 0, "", MovieListEnum.FOOTER));
         }
         System.out.println("");
     }
