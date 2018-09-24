@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkerblue">
+
+    <TextView
+        android:id="@+id/movieListFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@android:color/holo_blue_bright"
+        android:paddingRight="10dp"/>
+
+</RelativeLayout>

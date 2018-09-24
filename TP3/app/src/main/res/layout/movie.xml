@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@color/darkerblue">
+
+    <ImageView
+        android:id="@+id/movieListImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside" />
+
+    <LinearLayout
+        android:id="@+id/movieListItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/movieListImage"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/movieListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/movieListDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/movieListTitle"
+            android:textColor="@android:color/white"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:foregroundGravity="center"
+        android:src="@drawable/next"
+        android:tint="@color/yellow" />
+
+</RelativeLayout>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkblue">
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <com.clementserrano.tp1.view.HeaderView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backTitle="@string/back"
+            app:movieTitle="@string/star_wars"></com.clementserrano.tp1.view.HeaderView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/title"
+                    android:cropToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/star_wars" />
+
+                <TextView
+                    android:id="@+id/about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    android:textAllCaps="true"
+                    android:textColor="@color/yellow"
+                    android:textSize="11dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:text="@string/title"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/star_warsFR"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:text="@string/star_warsFr"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/titleO"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="30"
+                        android:text="@string/titleO"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/star_warsEN"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:text="@string/star_wars"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:text="@string/desc"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/desc_star_wars"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:text="@string/desc_star_wars"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/keywords"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:text="@string/keywords"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/keywords_star_wars"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:text="@string/keywords_star_wars"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button"
+                        android:drawableLeft="@drawable/share"
+                        android:drawableTint="@android:color/white"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="@string/share"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+
+                    <Button
+                        android:id="@+id/comment"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button"
+                        android:drawableLeft="@drawable/comment"
+                        android:drawableTint="@android:color/white"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="@string/comment"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+
+                    <Button
+                        android:id="@+id/like"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button"
+                        android:drawableLeft="@drawable/like"
+                        android:drawableTint="@android:color/white"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="@string/like"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/commentSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="100">
+
+        <EditText
+            android:id="@+id/commentEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:hint="@string/hint"
+            android:inputType="text"
+            android:nextFocusLeft="@id/commentEdit"
+            android:nextFocusUp="@id/commentEdit"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="13dp" />
+
+        <ImageButton
+            android:id="@+id/send"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="80"
+            android:background="@color/darkblue"
+            android:scaleType="centerInside"
+            android:src="@drawable/send"
+            android:tint="@color/yellow" />
+    </LinearLayout>
+
+</RelativeLayout>
