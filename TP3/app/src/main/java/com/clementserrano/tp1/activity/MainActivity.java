@@ -21,7 +21,9 @@ import android.widget.TextView;
 
 import com.clementserrano.tp1.R;
 import com.clementserrano.tp1.adapter.CommentAdapter;
+import com.clementserrano.tp1.manager.MovieManager;
 import com.clementserrano.tp1.model.Comment;
+import com.clementserrano.tp1.model.Movie;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +40,11 @@ public class MainActivity extends AppCompatActivity {
     private boolean toggleComment;
     private RecyclerView mRecyclerView;
 
+    private Movie movie;
+
     private Button backButton;
     private ImageButton crossButton;
+    private TextView pageTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         this.movieKeywords = findViewById(R.id.movieKeywords);
         this.movieImage = findViewById(R.id.movieImage);
 
+        this.pageTitle = findViewById(R.id.pageTitle);
 
         // Boutons
 
@@ -90,6 +96,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        Intent i = getIntent();
+        this.movie = (Movie) i.getSerializableExtra("movie");
+
+        this.movieTitle.setText(this.movie.getTitle());
+        this.movieOriginalTitle.setText(this.movie.getOriginalTitle());
+        this.movieDesc.setText(this.movie.getDesc());
+        this.movieKeywords.setText(this.movie.getKeywords());
+        this.movieImage.setImageResource(this.movie.getImage());
+
+        CommentAdapter commentAdapter = ((CommentAdapter) mRecyclerView.getAdapter());
+        commentAdapter.setmComments(this.movie.getComments());
+        commentAdapter.notifyDataSetChanged();
+
+        this.pageTitle.setText(this.movie.getTitle());
     }
 
     private View.OnClickListener clickBack = v -> {
@@ -142,7 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
             CommentAdapter commentAdapter = ((CommentAdapter) mRecyclerView.getAdapter());
 
-            commentAdapter.addComment(comment);
+            MovieManager.getInstance().getMovieById(movie.getId()).getComments().add(comment);
+            movie.getComments().add(comment);
             commentAdapter.notifyDataSetChanged();
 
             commentEdit.setText("");

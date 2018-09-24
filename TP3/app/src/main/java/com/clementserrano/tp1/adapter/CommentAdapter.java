@@ -49,4 +49,8 @@ public class CommentAdapter extends RecyclerView.Adapter {
     public List<Comment> getmComments() {
         return mComments;
     }
+
+    public void setmComments(List<Comment> mComments) {
+        this.mComments = mComments;
+    }
 }

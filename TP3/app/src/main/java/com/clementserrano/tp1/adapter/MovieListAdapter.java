@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.clementserrano.tp1.R;
+import com.clementserrano.tp1.activity.MovieListActivity;
 import com.clementserrano.tp1.model.Movie;
 import com.clementserrano.tp1.viewholder.FooterViewHolder;
 import com.clementserrano.tp1.viewholder.LetterViewHolder;
@@ -23,12 +24,15 @@ public class MovieListAdapter extends RecyclerView.Adapter {
 
     private List<Movie> mMovies;
 
+    private MovieListActivity movieListActivity;
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == MOVIE_CELL) {
             View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie, parent, false);
             MovieViewHolder vh = new MovieViewHolder(mView);
+            vh.setMovieListActivity(movieListActivity);
             return vh;
         } else if (viewType == LETTER_CELL) {
             View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.letter, parent, false);
@@ -77,5 +81,13 @@ public class MovieListAdapter extends RecyclerView.Adapter {
 
     public void setmMovies(List<Movie> mMovies) {
         this.mMovies = mMovies;
+    }
+
+    public List<Movie> getmMovies() {
+        return mMovies;
+    }
+
+    public void setMovieListActivity(MovieListActivity movieListActivity) {
+        this.movieListActivity = movieListActivity;
     }
 }

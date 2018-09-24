@@ -2,13 +2,19 @@ package com.clementserrano.tp1.model;
 
 import com.clementserrano.tp1.util.MovieListEnum;
 
-public class Movie {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Movie implements Serializable {
+    private int id;
     private String title;
     private String originalTitle;
     private int image;
     private String desc;
     private String keywords;
     private String category;
+    private List<Comment> comments;
     private MovieListEnum type;
 
     public Movie(String title, MovieListEnum type) {
@@ -16,7 +22,8 @@ public class Movie {
         this.type = type;
     }
 
-    public Movie(String title, String originalTitle, int image, String desc, String keywords, String category, MovieListEnum type) {
+    public Movie(int id, String title, String originalTitle, int image, String desc, String keywords, String category, MovieListEnum type) {
+        this.id = id;
         this.title = title;
         this.originalTitle = originalTitle;
         this.image = image;
@@ -24,6 +31,12 @@ public class Movie {
         this.keywords = keywords;
         this.category = category;
         this.type = type;
+
+        this.comments = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -56,6 +69,10 @@ public class Movie {
 
     public String getCategory() {
         return category;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 
     @Override

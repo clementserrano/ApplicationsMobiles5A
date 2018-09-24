@@ -1,6 +1,8 @@
 package com.clementserrano.tp1.model;
 
-public class Comment {
+import java.io.Serializable;
+
+public class Comment implements Serializable{
     private String user;
     private String content;
     private int imageName;

@@ -35,6 +35,7 @@ public class MovieListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie);
 
         this.mRecyclerView = findViewById(R.id.movieList);
+
         this.backButton = findViewById(R.id.backTitle);
         this.crossButton = findViewById(R.id.cross);
 
@@ -45,17 +46,11 @@ public class MovieListActivity extends AppCompatActivity {
         this.sortMovieList();
 
         MovieListAdapter movieListAdapter = new MovieListAdapter();
+        movieListAdapter.setMovieListActivity(this);
         movieListAdapter.setmMovies(mMovies);
         this.mRecyclerView.setAdapter(movieListAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.mRecyclerView.getAdapter().notifyDataSetChanged();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Intent i = getIntent();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -99,4 +94,10 @@ public class MovieListActivity extends AppCompatActivity {
         finish();
         System.exit(0);
     };
+
+    public void clickMovie(Movie movie){
+        Intent intent = new Intent(MovieListActivity.this, MainActivity.class);
+        intent.putExtra("movie", movie);
+        startActivity(intent);
+    }
 }

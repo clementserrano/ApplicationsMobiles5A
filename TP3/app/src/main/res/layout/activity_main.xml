@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/footer"
+        android:layout_alignParentTop="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical">
@@ -17,8 +18,7 @@
         <com.clementserrano.tp1.view.HeaderView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:backTitle="@string/back"
-            app:pageTitle="@string/star_wars"></com.clementserrano.tp1.view.HeaderView>
+            app:backTitle="@string/backToMoviesList"></com.clementserrano.tp1.view.HeaderView>
 
         <ScrollView
             android:layout_width="match_parent"
